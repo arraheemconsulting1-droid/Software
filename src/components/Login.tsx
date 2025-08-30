@@ -180,7 +180,8 @@ export default function Login() {
               </p>
             </div>
 
-            <div className="bg-white dark:bg-gray-800 rounded-2xl shadow-2xl border border-gray-200 dark:border-gray-700 p-8">
+            <>
+              <div className="bg-white dark:bg-gray-800 rounded-2xl shadow-2xl border border-gray-200 dark:border-gray-700 p-8">
               <form onSubmit={handleSubmit} className="space-y-6">
                 {/* Success Message */}
                 {success && (
@@ -327,9 +328,9 @@ export default function Login() {
                   {isLogin ? "Don't have an account? Create one" : 'Already have an account? Sign in'}
                 </button>
               </div>
-            </div>
+              </div>
 
-            {isLogin && (
+              {isLogin && (
               <div className="mt-6 p-6 bg-gradient-to-r from-blue-50 to-indigo-50 dark:from-blue-900/20 dark:to-indigo-900/20 rounded-2xl border border-blue-200 dark:border-blue-800">
                 <div className="flex items-center gap-3 mb-3">
                   <Shield className="w-5 h-5 text-blue-600 dark:text-blue-400" />
@@ -346,9 +347,9 @@ export default function Login() {
                   </div>
                 </div>
               </div>
-            )}
+              )}
 
-            {!isLogin && (
+              {!isLogin && (
               <div className="mt-6 p-6 bg-gradient-to-r from-amber-50 to-orange-50 dark:from-amber-900/20 dark:to-orange-900/20 rounded-2xl border border-amber-200 dark:border-amber-800">
                 <div className="flex items-center gap-3 mb-3">
                   <AlertTriangle className="w-5 h-5 text-amber-600 dark:text-amber-400" />
@@ -360,7 +361,8 @@ export default function Login() {
                   <p>• All accounts sync across devices</p>
                 </div>
               </div>
-            )}
+              )}
+            </>
           </div>
         </div>
       </div>
