@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Eye, EyeOff, User, Lock, Moon, Sun, Shield, AlertCircle, CheckCircle, Loader } from 'lucide-react';
+import { Eye, EyeOff, User, Lock, Moon, Sun, Shield, AlertCircle, CheckCircle, Loader, AlertTriangle } from 'lucide-react';
 import { useAuth } from '../contexts/AuthContext';
 
 export default function Login() {
@@ -191,142 +191,142 @@ export default function Login() {
                 )}
 
                 {/* Error Message */}
-              {error && (
+                {error && (
                   <div className="bg-red-50 dark:bg-red-900/20 border border-red-200 dark:border-red-800 text-red-600 dark:text-red-400 px-4 py-3 rounded-xl text-sm flex items-center gap-2 animate-slideInRight">
                     <AlertCircle className="w-5 h-5" />
                     {error}
                   </div>
-              )}
-
-              <div>
-                  <label className="block text-sm font-semibold text-gray-700 dark:text-gray-300 mb-3">
-                  Username
-                </label>
-                <div className="relative">
-                    <User className="absolute left-4 top-1/2 transform -translate-y-1/2 text-gray-400 w-5 h-5" />
-                  <input
-                    type="text"
-                    name="username"
-                    value={formData.username}
-                    onChange={handleInputChange}
-                      className="w-full pl-12 pr-4 py-4 border-2 border-gray-300 dark:border-gray-600 rounded-xl focus:ring-4 focus:ring-blue-500/20 focus:border-blue-500 bg-white dark:bg-gray-700 text-gray-900 dark:text-white transition-all duration-300 text-lg font-medium"
-                    placeholder="Enter your username"
-                      minLength={3}
-                    required
-                  />
-                </div>
-              </div>
-
-              <div>
-                  <label className="block text-sm font-semibold text-gray-700 dark:text-gray-300 mb-3">
-                  Password
-                </label>
-                <div className="relative">
-                    <Lock className="absolute left-4 top-1/2 transform -translate-y-1/2 text-gray-400 w-5 h-5" />
-                  <input
-                    type={showPassword ? 'text' : 'password'}
-                    name="password"
-                    value={formData.password}
-                    onChange={handleInputChange}
-                      className="w-full pl-12 pr-14 py-4 border-2 border-gray-300 dark:border-gray-600 rounded-xl focus:ring-4 focus:ring-blue-500/20 focus:border-blue-500 bg-white dark:bg-gray-700 text-gray-900 dark:text-white transition-all duration-300 text-lg font-medium"
-                    placeholder="Enter your password"
-                      minLength={6}
-                    required
-                  />
-                  <button
-                    type="button"
-                    onClick={() => setShowPassword(!showPassword)}
-                      className="absolute right-4 top-1/2 transform -translate-y-1/2 text-gray-400 hover:text-gray-600 dark:hover:text-gray-300 transition-colors duration-200"
-                  >
-                    {showPassword ? <EyeOff className="w-5 h-5" /> : <Eye className="w-5 h-5" />}
-                  </button>
-                </div>
-              </div>
-
-              {!isLogin && (
-                <>
-                  <div>
-                    <label className="block text-sm font-semibold text-gray-700 dark:text-gray-300 mb-3">
-                      Account Type
-                    </label>
-                    <select
-                      value={formData.role}
-                      onChange={handleRoleChange}
-                      className="w-full px-4 py-4 border-2 border-gray-300 dark:border-gray-600 rounded-xl focus:ring-4 focus:ring-blue-500/20 focus:border-blue-500 bg-white dark:bg-gray-700 text-gray-900 dark:text-white transition-all duration-300 text-lg font-medium"
-                    >
-                      <option value="admin">Administrator</option>
-                      <option value="employee">Employee</option>
-                    </select>
-                    <p className="text-xs text-gray-500 dark:text-gray-400 mt-2">
-                      {formData.role === 'admin' 
-                        ? 'Full access to all features and settings' 
-                        : 'Limited access for daily operations'
-                      }
-                    </p>
-                  </div>
+                )}
 
                 <div>
-                    <label className="block text-sm font-semibold text-gray-700 dark:text-gray-300 mb-3">
-                    Confirm Password
+                  <label className="block text-sm font-semibold text-gray-700 dark:text-gray-300 mb-3">
+                    Username
                   </label>
                   <div className="relative">
-                      <Lock className="absolute left-4 top-1/2 transform -translate-y-1/2 text-gray-400 w-5 h-5" />
+                    <User className="absolute left-4 top-1/2 transform -translate-y-1/2 text-gray-400 w-5 h-5" />
                     <input
-                        type={showConfirmPassword ? 'text' : 'password'}
-                      name="confirmPassword"
-                      value={formData.confirmPassword}
+                      type="text"
+                      name="username"
+                      value={formData.username}
                       onChange={handleInputChange}
-                        className="w-full pl-12 pr-14 py-4 border-2 border-gray-300 dark:border-gray-600 rounded-xl focus:ring-4 focus:ring-blue-500/20 focus:border-blue-500 bg-white dark:bg-gray-700 text-gray-900 dark:text-white transition-all duration-300 text-lg font-medium"
-                      placeholder="Confirm your password"
-                        minLength={6}
+                      className="w-full pl-12 pr-4 py-4 border-2 border-gray-300 dark:border-gray-600 rounded-xl focus:ring-4 focus:ring-blue-500/20 focus:border-blue-500 bg-white dark:bg-gray-700 text-gray-900 dark:text-white transition-all duration-300 text-lg font-medium"
+                      placeholder="Enter your username"
+                      minLength={3}
                       required
                     />
-                      <button
-                        type="button"
-                        onClick={() => setShowConfirmPassword(!showConfirmPassword)}
-                        className="absolute right-4 top-1/2 transform -translate-y-1/2 text-gray-400 hover:text-gray-600 dark:hover:text-gray-300 transition-colors duration-200"
-                      >
-                        {showConfirmPassword ? <EyeOff className="w-5 h-5" /> : <Eye className="w-5 h-5" />}
-                      </button>
                   </div>
                 </div>
-                </>
-              )}
 
-              <button
-                type="submit"
-                disabled={loading}
+                <div>
+                  <label className="block text-sm font-semibold text-gray-700 dark:text-gray-300 mb-3">
+                    Password
+                  </label>
+                  <div className="relative">
+                    <Lock className="absolute left-4 top-1/2 transform -translate-y-1/2 text-gray-400 w-5 h-5" />
+                    <input
+                      type={showPassword ? 'text' : 'password'}
+                      name="password"
+                      value={formData.password}
+                      onChange={handleInputChange}
+                      className="w-full pl-12 pr-14 py-4 border-2 border-gray-300 dark:border-gray-600 rounded-xl focus:ring-4 focus:ring-blue-500/20 focus:border-blue-500 bg-white dark:bg-gray-700 text-gray-900 dark:text-white transition-all duration-300 text-lg font-medium"
+                      placeholder="Enter your password"
+                      minLength={6}
+                      required
+                    />
+                    <button
+                      type="button"
+                      onClick={() => setShowPassword(!showPassword)}
+                      className="absolute right-4 top-1/2 transform -translate-y-1/2 text-gray-400 hover:text-gray-600 dark:hover:text-gray-300 transition-colors duration-200"
+                    >
+                      {showPassword ? <EyeOff className="w-5 h-5" /> : <Eye className="w-5 h-5" />}
+                    </button>
+                  </div>
+                </div>
+
+                {!isLogin && (
+                  <>
+                    <div>
+                      <label className="block text-sm font-semibold text-gray-700 dark:text-gray-300 mb-3">
+                        Account Type
+                      </label>
+                      <select
+                        value={formData.role}
+                        onChange={handleRoleChange}
+                        className="w-full px-4 py-4 border-2 border-gray-300 dark:border-gray-600 rounded-xl focus:ring-4 focus:ring-blue-500/20 focus:border-blue-500 bg-white dark:bg-gray-700 text-gray-900 dark:text-white transition-all duration-300 text-lg font-medium"
+                      >
+                        <option value="admin">Administrator</option>
+                        <option value="employee">Employee</option>
+                      </select>
+                      <p className="text-xs text-gray-500 dark:text-gray-400 mt-2">
+                        {formData.role === 'admin' 
+                          ? 'Full access to all features and settings' 
+                          : 'Limited access for daily operations'
+                        }
+                      </p>
+                    </div>
+
+                    <div>
+                      <label className="block text-sm font-semibold text-gray-700 dark:text-gray-300 mb-3">
+                        Confirm Password
+                      </label>
+                      <div className="relative">
+                        <Lock className="absolute left-4 top-1/2 transform -translate-y-1/2 text-gray-400 w-5 h-5" />
+                        <input
+                          type={showConfirmPassword ? 'text' : 'password'}
+                          name="confirmPassword"
+                          value={formData.confirmPassword}
+                          onChange={handleInputChange}
+                          className="w-full pl-12 pr-14 py-4 border-2 border-gray-300 dark:border-gray-600 rounded-xl focus:ring-4 focus:ring-blue-500/20 focus:border-blue-500 bg-white dark:bg-gray-700 text-gray-900 dark:text-white transition-all duration-300 text-lg font-medium"
+                          placeholder="Confirm your password"
+                          minLength={6}
+                          required
+                        />
+                        <button
+                          type="button"
+                          onClick={() => setShowConfirmPassword(!showConfirmPassword)}
+                          className="absolute right-4 top-1/2 transform -translate-y-1/2 text-gray-400 hover:text-gray-600 dark:hover:text-gray-300 transition-colors duration-200"
+                        >
+                          {showConfirmPassword ? <EyeOff className="w-5 h-5" /> : <Eye className="w-5 h-5" />}
+                        </button>
+                      </div>
+                    </div>
+                  </>
+                )}
+
+                <button
+                  type="submit"
+                  disabled={loading}
                   className="w-full bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 disabled:from-blue-400 disabled:to-indigo-400 text-white font-bold py-4 px-6 rounded-xl transition-all duration-300 flex items-center justify-center text-lg shadow-xl hover:shadow-2xl transform hover:scale-105 disabled:transform-none disabled:shadow-lg"
-              >
-                {loading ? (
+                >
+                  {loading ? (
                     <div className="flex items-center gap-3">
                       <Loader className="w-5 h-5 animate-spin" />
                       <span>{isLogin ? 'Signing In...' : 'Creating Account...'}</span>
                     </div>
-                ) : (
+                  ) : (
                     <span>{isLogin ? 'Sign In to Arkive' : 'Create Account'}</span>
-                )}
-              </button>
-            </form>
+                  )}
+                </button>
+              </form>
 
               <div className="mt-8 text-center">
-              <button
-                onClick={() => {
-                  setIsLogin(!isLogin);
-                  setError('');
+                <button
+                  onClick={() => {
+                    setIsLogin(!isLogin);
+                    setError('');
                     setSuccess('');
-                  setFormData({
-                    username: '',
-                    password: '',
+                    setFormData({
+                      username: '',
+                      password: '',
                       confirmPassword: '',
                       role: 'admin'
-                  });
-                }}
+                    });
+                  }}
                   className="text-blue-600 hover:text-blue-700 dark:text-blue-400 dark:hover:text-blue-300 font-semibold text-lg transition-colors duration-200 hover:underline"
-              >
+                >
                   {isLogin ? "Don't have an account? Create one" : 'Already have an account? Sign in'}
-              </button>
-            </div>
+                </button>
+              </div>
             </div>
 
             {isLogin && (
@@ -358,6 +358,7 @@ export default function Login() {
                   <p>• Maximum 2 admin accounts allowed</p>
                   <p>• Unlimited employee accounts</p>
                   <p>• All accounts sync across devices</p>
+                </div>
               </div>
             )}
           </div>
