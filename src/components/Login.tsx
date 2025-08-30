@@ -358,7 +358,6 @@ export default function Login() {
                   <p>• Maximum 2 admin accounts allowed</p>
                   <p>• Unlimited employee accounts</p>
                   <p>• All accounts sync across devices</p>
-                </p>
               </div>
             )}
           </div>
