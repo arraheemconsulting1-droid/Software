@@ -196,7 +196,6 @@ export default function Login() {
                     <AlertCircle className="w-5 h-5" />
                     {error}
                   </div>
-                </div>
               )}
 
               <div>
